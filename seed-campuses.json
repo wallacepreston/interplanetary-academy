@@ -1,0 +1,9 @@
+
+[
+  {"name": "Luna", "imageURL": "https://images.pexels.com/photos/47367/full-moon-moon-bright-sky-47367.jpeg?auto=compress&cs=tinysrgb&h=350", "address": "1 Buzz Aldrin Wy, Lunar Lander, CA, 00000", "description": "This school is out of this world! But it's not so far away that you can't get there in time."},
+  {"name": "Terra", "imageURL": "https://images.pexels.com/photos/41953/earth-blue-planet-globe-planet-41953.jpeg?auto=compress&cs=tinysrgb&h=350", "address": "3 Rock Way, Earth City, NY, 00000", "description": "This school is pretty close to home"},
+  {"name": "Mars", "imageURL": "https://s.hswstatic.com/gif/mars-a1.jpg", "address": "4 Red Blvd, Mars City, MI, 88888", "description": "Never Fear, you'll get here someday.  Only a select few students get in here, though.  It has a tough acceptance rate."},
+  {"name": "Titan", "imageURL": "http://psyxotoxic.ru/foto/space/titan-saturn.jpg", "address": "5 Jupiter Way, Big City, Montana, 55555", "description": "This is quite possibly the biggest school in this list."}
+]
+
+
