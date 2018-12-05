@@ -8,26 +8,36 @@ The requirements below are broken into separate **tiers**, which model the way w
 
 #### Backend
 
-- [ ] Write a `campuses` model with the following information:
-  - [ ] name - not empty or null
-  - [ ] imageUrl - with a default value
-  - [ ] address - not empty or null
-  - [ ] description - extremely large text
-- [ ] Write a `students` model with the following information:
-  - [ ] firstName - not empty or null
-  - [ ] lastName - not empty or null
-  - [ ] email - not empty or null; must be a valid email
-  - [ ] imageUrl - with a default value
-  - [ ] gpa - decimal between 0.0 and 4.0
-- [ ] Students may be associated with at most one campus. Likewise, campuses may be associated with many students
+- [X] Write a `campuses` model with the following information:
+  - [X] name - not empty or null
+  - [X] imageUrl - with a default value
+  - [X] address - not empty or null
+  - [X] description - extremely large text
+- [X] Write a `students` model with the following information:
+  - [X] firstName - not empty or null
+  - [X] lastName - not empty or null
+  - [X] email - not empty or null; must be a valid email
+  - [X] imageUrl - with a default value
+  - [X] gpa - decimal between 0.0 and 4.0
+- [X] Students may be associated with at most one campus. Likewise, campuses may be associated with many students
 
-- [ ] Write a route to serve up all students
-- [ ] Write a route to serve up all campuses
+- [X] Write a route to serve up all students
+- [X] Write a route to serve up all campuses
 
 #### Frontend
-- [ ] Write a campuses sub-reducer to manage campuses in your Redux store
+- [X] Write a campuses sub-reducer to manage campuses in your Redux store
+  - Sub-reducer
+  - Action types
+  - Action Creators
+  - Add cases in Reducers
+  - Thunk Creators (for api requests)
+  - Install Redux DevTools
 - [ ] Write a students sub-reducer to manage students in your Redux store
 - [ ] Write a component to display a list of all campuses (just their names and images)
+  - Create functional component that just displays a basic `<div>` with a `<ul>` and map over `state.campuses.list` and output their names to display the campus names as `campus.name` and their images as `campus.imageURL` (or something...)
+  - Connect the component to the store
+  - mapStateToProps, with the `state.campuses.list` as one of the pieces of state.
+  
 - [ ] Write a component to display a list of all students (just their names)
 - [ ] Display the all-campuses component when the url matches `/campuses`
 - [ ] Display the all-students component when the url matches `/students`
