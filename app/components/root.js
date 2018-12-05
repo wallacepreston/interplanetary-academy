@@ -25,8 +25,6 @@ class Root extends React.Component {
           <Route exact path='/campuses' component={CampusList} />
           <Route exact path='/students' component={StudentList} />
         </Switch>
-        {/* <CampusList />
-        <StudentList /> */}
       </main>
     </div>
   )}
