@@ -23,6 +23,15 @@ const Campus = db.define('campus', {
     }
   },
   description: Sequelize.TEXT
+},
+{
+  hooks: {
+    beforeValidate: campus => {
+      if (campus.imageURL === ''){
+        campus.imageURL = 'https://media.timeout.com/images/100680467/630/472/image.jpg';
+      }
+    }
+  }
 })
 
 module.exports = Campus;

@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const GET_CAMPUSES = 'GET_CAMPUSES';
 const GET_SELECTED_CAMPUS = 'GET_SELECTED_CAMPUS'
-
+const ADD_CAMPUS = 'ADD_CAMPUS'
 // ACTION CREATORS
 
 export const getCampuses = (campuses) => {
@@ -13,6 +13,10 @@ export const getCampuses = (campuses) => {
 
 export const getSelectedCampus = (campus) => {
   return { type: GET_SELECTED_CAMPUS, campus };
+}
+
+export const addCampus = (campus) => {
+  return {type: ADD_CAMPUS, campus};
 }
 
 // THUNK CREATORS
@@ -51,6 +55,11 @@ const campusesReducer = (state = initialState, action) => {
     return {
       ...state,
       selected: action.campus
+    }
+    case ADD_CAMPUS:
+    return {
+      ...state,
+      list: [...state.list, action.campus]
     }
     default:
       return state
