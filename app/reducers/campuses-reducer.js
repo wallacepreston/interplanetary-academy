@@ -5,6 +5,8 @@ import axios from 'axios'
 const GET_CAMPUSES = 'GET_CAMPUSES';
 const GET_SELECTED_CAMPUS = 'GET_SELECTED_CAMPUS'
 const ADD_CAMPUS = 'ADD_CAMPUS'
+const UPDATE_CAMPUSES = 'UPDATE_CAMPUSES'
+
 // ACTION CREATORS
 
 export const getCampuses = (campuses) => {
@@ -17,6 +19,10 @@ export const getSelectedCampus = (campus) => {
 
 export const addCampus = (campus) => {
   return {type: ADD_CAMPUS, campus};
+}
+
+export const updateCampuses = (campuses) => {
+  return { type: UPDATE_CAMPUSES, campuses}
 }
 
 // THUNK CREATORS
