@@ -32,9 +32,9 @@ router.post('/', async (req, res, next) => {
   try {
     const campus = await Campus.create(req.body)
     const returnMessage = campus.toJSON();
-    res.json(returnMessage);
-  } catch (err) {
-    next(err);
+    res.send(returnMessage);
+  } catch (error) {
+    next(error);
   }
 });
 module.exports = router

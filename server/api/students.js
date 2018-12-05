@@ -27,4 +27,15 @@ router.get('/:studentId', async (req, res, next) => {
   }
 })
 
+// POST /api/students
+router.post('/', async (req, res, next) => {
+  try {
+    const student = await Student.create(req.body)
+    const returnMessage = student.toJSON();
+    res.send(returnMessage);
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router
