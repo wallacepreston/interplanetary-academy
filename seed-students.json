@@ -1,9 +1,13 @@
 
 [
-  {"firstName": "Gabe", "lastName": "Mooney", "imageURL": "https://www.fillmurray.com/460/300", "email": "example@example.com", "gpa": "3.5"},
-  {"firstName": "Ashi", "lastName": "Earthy", "imageURL": "https://www.fillmurray.com/300/300", "email": "example@example.com", "gpa": "4.0"},
-  {"firstName": "Dan", "lastName": "Looney", "imageURL": "https://www.fillmurray.com/400/400", "email": "example@example.com", "gpa": "3.0"},
-  {"firstName": "Marvin", "lastName": "Tighter", "imageURL": "https://www.fillmurray.com/500/500", "email": "example@example.com", "gpa": "3.9"}
+  {"firstName": "Gabe", "lastName": "Mooney", "imageURL": "https://www.fillmurray.com/460/300", "email": "example@example.com", "gpa": "3.5", "campusId": 1},
+  {"firstName": "Ashi", "lastName": "Earthy", "imageURL": "https://www.fillmurray.com/300/300", "email": "example@example.com", "gpa": "4.0", "campusId": 2},
+  {"firstName": "Dan", "lastName": "Looney", "imageURL": "https://www.fillmurray.com/400/400", "email": "example@example.com", "gpa": "3.0", "campusId": 3},
+  {"firstName": "Marvin", "lastName": "Tighter", "imageURL": "https://www.fillmurray.com/500/500", "email": "example@example.com", "gpa": "3.9", "campusId": 4},
+  {"firstName": "Marvin", "lastName": "Tighter", "imageURL": "https://www.fillmurray.com/500/500", "email": "example@example.com", "gpa": "3.9", "campusId": 4},
+  {"firstName": "Marvin", "lastName": "Tighter", "imageURL": "https://www.fillmurray.com/500/500", "email": "example@example.com", "gpa": "3.9", "campusId": 4},
+  {"firstName": "Marvin", "lastName": "Tighter", "imageURL": "https://www.fillmurray.com/500/500", "email": "example@example.com", "gpa": "3.9", "campusId": 4},
+  {"firstName": "Marvin", "lastName": "Tighter", "imageURL": "https://www.fillmurray.com/500/500", "email": "example@example.com", "gpa": "3.9", "campusId": 4}
 ]
 
 
