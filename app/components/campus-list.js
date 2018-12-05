@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import {Link, withRouter} from 'react-router-dom';
 
 const CampusList = (props) => {
     return (
@@ -9,7 +10,7 @@ const CampusList = (props) => {
       <ul>
         {props.campuses.map(campus => (
             <li key={campus.id}>
-              {campus.name} :
+              <Link to={'/campuses/' + campus.id}>{campus.name}</Link>  :
               <img src={campus.imageURL} height="70" width="70" /> 
             </li>
           ))}
@@ -22,6 +23,6 @@ const mapStateToProps = (state) => ({
   campuses: state.campuses.list
 })
 
-const CampusListContainer = connect(mapStateToProps)(CampusList)
+const CampusListContainer = withRouter(connect(mapStateToProps)(CampusList))
 
 export default CampusListContainer
