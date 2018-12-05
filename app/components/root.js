@@ -1,9 +1,11 @@
 import React from 'react'
+import {connect} from 'react-redux';
+import {Route, Switch} from 'react-router-dom';
 import CampusList from './campus-list'
 import StudentList from './student-list'
-import { connect } from 'react-redux';
 import {fetchCampuses} from '../reducers/campuses-reducer'
 import {fetchStudents} from '../reducers/students-reducer'
+
 
 class Root extends React.Component {
   componentDidMount () {
@@ -19,8 +21,12 @@ class Root extends React.Component {
       <main>
         <h1>Welcome to the Margaret Hamilton Academy of JavaScript!</h1>
         <p>This seems like a nice place to get started with some Routes!</p>
-        <CampusList />
-        <StudentList />
+        <Switch>
+          <Route exact path='/campuses' component={CampusList} />
+          <Route exact path='/students' component={StudentList} />
+        </Switch>
+        {/* <CampusList />
+        <StudentList /> */}
       </main>
     </div>
   )}
