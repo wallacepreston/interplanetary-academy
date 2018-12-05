@@ -2,9 +2,11 @@
 // When you're ready to use it, un-comment the line below!
 
 import {combineReducers} from 'redux'
-import {campusesReducer} from './campuses-reducer'
-import {studentsReducer} from './students-reducer'
+import campusesReducer from './campuses-reducer'
+import studentsReducer from './students-reducer'
 
+
+// MY COMBINEREDUCER
 const reducer = combineReducers({
   campuses: campusesReducer,
   students: studentsReducer
