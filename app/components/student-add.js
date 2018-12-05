@@ -51,31 +51,35 @@ class StudentAdd extends React.Component {
           <div>
             <label htmlFor="firstName">First Name: </label>
             <input type="text" name="firstName" placeholder="Enter student first name" value={this.state.firstName} onChange={this.handleChange} />
+            {this.state.firstName === '' ? <span className="warning">Required!</span> : ''}
           </div>
           <div>
             <label htmlFor="lastName">Last Name: </label>
             <input type="text" name="lastName" placeholder="Enter student last name" value={this.state.lastName} onChange={this.handleChange} />
+            {this.state.lastName === '' ? <span className="warning">Required!</span> : ''}
           </div>
           <div>
             <label htmlFor="email">Email: </label>
-            <input type="text" name="email" placeholder="Enter student email" value={this.state.email} onChange={this.handleChange} />
+            <input type="text" name="email" placeholder="Enter student email" value={this.state.email} onChange={this.handleChange} />{this.state.email === '' ? <span className="warning">Required!</span> : ''}
           </div>
           <div>
             <label htmlFor="gpa">GPA: </label>
             <input type="text" name="gpa" placeholder="Enter student gpa" value={this.state.gpa} onChange={this.handleChange} />
+            {this.state.gpa === '' ? <span className="note">Optional, but it helps.</span> : ''}
           </div>
           <div>
             <label htmlFor="imageURL">Image URL: </label>
             <input type="text" name="imageURL" placeholder="Enter student image URL" value={this.state.imageURL} onChange={this.handleChange} />
+            {this.state.imageURL === '' ? <span className="note">We'll choose one for you if you don't.</span> : ''}
           </div>
           <div>
             <label htmlFor="campusId">Campus: </label>
             <select name="campusId" value={this.state.campusId} onChange={this.handleChange}>
               {this.props.campuses.map(campus => (
-                <option key={campus.id} value={campus.id}>{campus.name}</option>  
-              )
-              )}
+                <option key={campus.id} value={campus.id}>{campus.name}</option> 
+              ))}
             </select>
+            {this.state.campusId === '' ? <span className="note">Leave blank if you haven't decided.</span> : ''}
           </div>
             <button type="submit">Add Student</button>
         </form>

@@ -31,3 +31,21 @@ main {
   flex-direction: column;
   justify-content: center;
 }
+
+.warning {
+  padding: 0 0.5em;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+  background-color: orange;
+  color: white;
+  margin-left: 1em;
+}
+
+.note {
+  padding: 0 0.5em;
+  font-size: .6em;
+  letter-spacing: 0.1em;
+  background-color: rgb(59, 59, 59);
+  color: white;
+  margin-left: 1em;
+}

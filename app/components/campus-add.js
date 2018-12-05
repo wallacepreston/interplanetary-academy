@@ -42,18 +42,22 @@ class CampusAdd extends React.Component {
           <div>
             <label htmlFor="name">Name: </label>
             <input type="text" name="name" placeholder="Enter campus name" value={this.state.name} onChange={this.handleChange} />
+            {this.state.name === '' ? <span className="warning">Required!</span> : ''}
           </div>
           <div>
             <label htmlFor="address">Address: </label>
             <input type="text" name="address" placeholder="Enter campus address" value={this.state.address} onChange={this.handleChange} />
+            {this.state.address === '' ? <span className="warning">Required!</span> : ''}
           </div>
           <div>
             <label htmlFor="description">Description: </label>
             <input type="text" name="description" placeholder="Enter campus description" value={this.state.description} onChange={this.handleChange} />
+            {this.state.description === '' ? <span className="note">Optional, but we'd love a description.</span> : ''}
           </div>
           <div>
             <label htmlFor="imageURL">Image URL: </label>
             <input type="text" name="imageURL" placeholder="Enter campus image URL" value={this.state.imageURL} onChange={this.handleChange} />
+            {this.state.imageURL === '' ? <span className="note">We'll choose one for you if you don't.</span> : ''}
           </div>
             <button type="submit">Add Campus</button>
         </form>
