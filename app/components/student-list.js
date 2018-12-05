@@ -7,6 +7,7 @@ const StudentList = (props) => {
     return (
     <div>
       <h3>Students:</h3>
+      <Link to={`/students/add`}>Add a Student</Link>
       {console.log(props.students)}
       <ul>
         {props.students.map(student => (

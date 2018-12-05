@@ -6,6 +6,7 @@ const CampusList = (props) => {
     return (
     <div>
       <h3>Campuses:</h3>
+      <Link to={`/campuses/add`}>Add a Campus</Link>
       {console.log(props.campuses)}
       <ul>
         {props.campuses.map(campus => (

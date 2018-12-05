@@ -37,4 +37,21 @@ router.post('/', async (req, res, next) => {
     next(error);
   }
 });
+
+// DELETE /api/campuses/:campusId
+router.delete('/:campusId', async (req, res, next) => {
+  try {
+    const numDeleted = await Campus.destroy({
+      where: {
+        id: req.params.campusId
+      }
+    })
+    const response = await Campus.findAll({
+      include: [{model: Student}]
+    });
+    res.send(response)
+  } catch (error) {
+    next(error);
+  }
+});
 module.exports = router
