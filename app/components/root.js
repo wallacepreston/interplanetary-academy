@@ -7,7 +7,7 @@ import StudentList from './student-list'
 import CampusSingle from './campus-single'
 import StudentSingle from './student-single'
 import CampusAdd from './campus-add'
-// import StudentAdd from './student-add'
+import StudentAdd from './student-add'
 import {fetchCampuses} from '../reducers/campuses-reducer'
 import {fetchStudents} from '../reducers/students-reducer'
 
@@ -30,7 +30,7 @@ class Root extends React.Component {
           <Route exact path='/campuses' component={CampusList} />
           <Route exact path='/students' component={StudentList} />
           <Route exact path='/campuses/add' component={CampusAdd} />
-          {/* <Route path='/students/add' component={StudentAdd} /> */}
+          <Route path='/students/add' component={StudentAdd} />
           <Route exact path='/campuses/:campusId' component={CampusSingle} />
           <Route exact path='/students/:studentId' component={StudentSingle} />
           

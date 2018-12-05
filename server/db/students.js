@@ -38,6 +38,18 @@ const Student = db.define('student', {
     }
   }
 
+},
+{
+  hooks: {
+    beforeValidate: student => {
+      if (student.imageURL === ''){
+        student.imageURL = 'https://www.fillmurray.com/g/155/300';
+      }
+      if (student.campusId === ''){
+        student.campusId = null;
+      }
+    }
+  }
 })
 
 module.exports = Student;

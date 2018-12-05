@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const GET_STUDENTS = 'GET_STUDENTS';
 const GET_SELECTED_STUDENT = 'GET_SELECTED_STUDENT'
-
+const ADD_STUDENT = 'ADD_STUDENT'
 // ACTION CREATORS
 
 export const getStudents = (students) => {
@@ -13,6 +13,10 @@ export const getStudents = (students) => {
 
 export const getSelectedStudent = (student) => {
   return { type: GET_SELECTED_STUDENT, student };
+}
+
+export const addStudent = (student) => {
+  return {type: ADD_STUDENT, student}
 }
 
 // THUNK CREATORS
@@ -51,6 +55,11 @@ const studentsReducer = (state = initialState, action) => {
     return {
       ...state,
       selected: action.student
+    }
+    case ADD_STUDENT:
+    return {
+      ...state,
+      list: [...state.list, action.student]
     }
     default:
       return state
