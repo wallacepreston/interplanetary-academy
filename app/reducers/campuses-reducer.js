@@ -35,7 +35,7 @@ export const fetchSelectedCampus = (campusId) => {
 
 const initialState = {
   list: [],
-  selected: {}
+  selected: {students: []}
 }
 
 const campusesReducer = (state = initialState, action) => {

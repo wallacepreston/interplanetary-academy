@@ -32,16 +32,16 @@ The requirements below are broken into separate **tiers**, which model the way w
   - Add cases in Reducers
   - Thunk Creators (for api requests)
   - Install Redux DevTools
-- [ ] Write a students sub-reducer to manage students in your Redux store
-- [ ] Write a component to display a list of all campuses (just their names and images)
+- [X] Write a students sub-reducer to manage students in your Redux store
+- [X] Write a component to display a list of all campuses (just their names and images)
   - Create functional component that just displays a basic `<div>` with a `<ul>` and map over `state.campuses.list` and output their names to display the campus names as `campus.name` and their images as `campus.imageURL` (or something...)
   - Connect the component to the store
   - mapStateToProps, with the `state.campuses.list` as one of the pieces of state.
   
-- [ ] Write a component to display a list of all students (just their names)
-- [ ] Display the all-campuses component when the url matches `/campuses`
-- [ ] Display the all-students component when the url matches `/students`
-- [ ] Add links to the navbar that can be used to navigate to the all-campuses view and the all-students view
+- [X] Write a component to display a list of all students (just their names)
+- [X] Display the all-campuses component when the url matches `/campuses`
+- [X] Display the all-students component when the url matches `/students`
+- [X] Add links to the navbar that can be used to navigate to the all-campuses view and the all-students view
 
 Congrats! You have completed your first vertical slice! Make sure to `commit -m "Feature: Get All Campuses and Students"` before moving on (see `RUBRIC.md` - points are awarded/deducted for a proper git workflow)!
 
@@ -53,14 +53,14 @@ Congrats! You have completed your first vertical slice! Make sure to `commit -m 
 
 #### Backend
 
-- [ ] Write a route to serve up a single campus (based on its id), _including that campuses' students_
-- [ ] Write a route to serve up a single student (based on their id), _including that student's campus_
+- [X] Write a route to serve up a single campus (based on its id), _including that campuses' students_
+- [X] Write a route to serve up a single student (based on their id), _including that student's campus_
 
 #### Frontend
-- [ ] Write a component to display a single campus with the following information:
-  - [ ] The campus's name, image, address and description
-  - [ ] A list of the names of all students in that campus (or a helpful message if it doesn't have any students)
-- [ ] Display the appropriate campus's info when the url matches `/campuses/:campusId`
+- [X] Write a component to display a single campus with the following information:
+  - [X] The campus's name, image, address and description
+  - [X] A list of the names of all students in that campus (or a helpful message if it doesn't have any students)
+- [X] Display the appropriate campus's info when the url matches `/campuses/:campusId`
 - [ ] Clicking on a campus from the all-campuses view should navigate to show that campus in the single-campus view
 
 - [ ] Write a component to display a single student with the following information:
