@@ -26,4 +26,15 @@ router.get('/:campusId', async  (req, res, next) => {
     next(error)
   }
 });
+
+// POST /api/campuses
+router.post('/', async (req, res, next) => {
+  try {
+    const campus = await Campus.create(req.body)
+    const returnMessage = campus.toJSON();
+    res.json(returnMessage);
+  } catch (err) {
+    next(err);
+  }
+});
 module.exports = router

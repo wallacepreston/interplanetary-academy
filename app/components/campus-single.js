@@ -1,9 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {fetchSelectedCampus} from '../reducers/campuses-reducer'
+import {Link, withRouter} from 'react-router-dom';
 
 
-//change this to a class stateful class component. Then use componentDidUpdate, calling this.setState() inside, passing in the new campus.
+
 class CampusSingle extends React.Component {
   componentDidMount () {
     this.props.fetchSelectedCampus(this.props.match.params.campusId)
@@ -23,7 +24,7 @@ class CampusSingle extends React.Component {
         students.length
         ? students.map(student => (
           <ul key={student.id}>
-            <li>{student.firstName} {student.lastName}</li>
+            <li><Link to={`/students/${student.id}`}>{student.firstName} {student.lastName}</Link></li>
           </ul>
         ))
         : <p>No Students to Show</p>
@@ -40,6 +41,6 @@ const mapDispatchToProps = (dispatch) => ({
   fetchSelectedCampus: (campusId) => dispatch(fetchSelectedCampus(campusId))
 })
 
-const CampusSingleContainer = connect(mapStateToProps, mapDispatchToProps)(CampusSingle)
+const CampusSingleContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(CampusSingle))
 
 export default CampusSingleContainer

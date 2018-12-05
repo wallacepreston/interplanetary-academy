@@ -3,11 +3,16 @@ import axios from 'axios'
 // ACTION TYPES
 
 const GET_STUDENTS = 'GET_STUDENTS';
+const GET_SELECTED_STUDENT = 'GET_SELECTED_STUDENT'
 
 // ACTION CREATORS
 
 export const getStudents = (students) => {
   return { type: GET_STUDENTS, students };
+}
+
+export const getSelectedStudent = (student) => {
+  return { type: GET_SELECTED_STUDENT, student };
 }
 
 // THUNK CREATORS
@@ -19,9 +24,21 @@ export const fetchStudents = () => {
   }
 }
 
-const initialState = {
-  list: []
+export const fetchSelectedStudent = (studentId) => {
+  return async (dispatch) => {
+    const {data} = await axios.get(`/api/students/${studentId}`);
+    dispatch(getSelectedStudent(data));
+  }
 }
+
+// INITIAL STATE
+
+const initialState = {
+  list: [],
+  selected: {campus: {}}
+}
+
+// REDUCER
 
 const studentsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -30,6 +47,11 @@ const studentsReducer = (state = initialState, action) => {
         ...state,
         list: action.students
       }
+    case GET_SELECTED_STUDENT:
+    return {
+      ...state,
+      selected: action.student
+    }
     default:
       return state
   }

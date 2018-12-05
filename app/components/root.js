@@ -5,7 +5,7 @@ import {Route, Switch, Link, withRouter} from 'react-router-dom';
 import CampusList from './campus-list'
 import StudentList from './student-list'
 import CampusSingle from './campus-single'
-// import StudentSingle from './student-single'
+import StudentSingle from './student-single'
 import {fetchCampuses} from '../reducers/campuses-reducer'
 import {fetchStudents} from '../reducers/students-reducer'
 
@@ -29,7 +29,7 @@ class Root extends React.Component {
           <Route exact path='/campuses' component={CampusList} />
           <Route exact path='/students' component={StudentList} />
           <Route path='/campuses/:campusId' component={CampusSingle} />
-          {/* <Route path='/students/:studentId' component={StudentSingle} /> */}
+          <Route path='/students/:studentId' component={StudentSingle} />
         </Switch>
       </main>
     </div>

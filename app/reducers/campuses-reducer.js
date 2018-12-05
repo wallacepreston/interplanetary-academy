@@ -31,12 +31,14 @@ export const fetchSelectedCampus = (campusId) => {
   }
 }
 
-// REDUCER
+// INITIAL STATE
 
 const initialState = {
   list: [],
   selected: {students: []}
 }
+
+// REDUCER
 
 const campusesReducer = (state = initialState, action) => {
   switch (action.type) {
