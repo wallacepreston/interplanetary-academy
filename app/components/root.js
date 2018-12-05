@@ -1,10 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, Link, withRouter} from 'react-router-dom';
+
 import CampusList from './campus-list'
 import StudentList from './student-list'
 import {fetchCampuses} from '../reducers/campuses-reducer'
 import {fetchStudents} from '../reducers/students-reducer'
+
 
 
 class Root extends React.Component {
@@ -16,7 +18,7 @@ class Root extends React.Component {
     return (
     <div>
       <nav>
-        Welcome!
+        Welcome! What would you like to view? <Link to="/students">Students</Link> | <Link to="/campuses">Campuses</Link> 
       </nav>
       <main>
         <h1>Welcome to the Margaret Hamilton Academy of JavaScript!</h1>
@@ -35,6 +37,6 @@ const mapDispatchToProps = (dispatch) => ({
   fetchStudents: () => dispatch(fetchStudents())
 })
 
-const RootContainer = connect(null, mapDispatchToProps)(Root)
+const RootContainer = withRouter(connect(null, mapDispatchToProps)(Root))
 
 export default RootContainer
