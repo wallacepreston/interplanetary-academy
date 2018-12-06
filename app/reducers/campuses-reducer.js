@@ -36,6 +36,13 @@ export const fetchSelectedCampus = (campusId) => {
   }
 }
 
+export const updateCampus = (campus) => {
+  return async (dispatch) => {
+    const {data} = await axios.put(`/api/campuses/${campus.id}`, campus);
+    dispatch(getCampuses(data))
+  }
+}
+
 // INITIAL STATE
 
 const initialState = {

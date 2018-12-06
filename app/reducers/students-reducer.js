@@ -11,7 +11,7 @@ export const getStudents = (students) => {
   return { type: GET_STUDENTS, students };
 }
 
-export const getSelectedStudent = (student) => {
+export const getSelectedStudent = (student) =>{
   return { type: GET_SELECTED_STUDENT, student };
 }
 
@@ -32,6 +32,13 @@ export const fetchSelectedStudent = (studentId) => {
   return async (dispatch) => {
     const {data} = await axios.get(`/api/students/${studentId}`);
     dispatch(getSelectedStudent(data));
+  }
+}
+
+export const updateStudent = (student) => {
+  return async (dispatch) => {
+    const {data} = await axios.put(`/api/students/${student.id}`, student);
+    dispatch(getStudents(data))
   }
 }
 

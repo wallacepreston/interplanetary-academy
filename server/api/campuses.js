@@ -9,21 +9,21 @@ router.get('/', async (req, res, next) => {
     });
     res.send(response)
   }
-  catch (error) {
-    next(error)
+  catch (err) {
+    next(err)
   }
 })
 
 // GET /api/campuses/:campusId
 router.get('/:campusId', async  (req, res, next) => {
-  try{
+  try {
     const response = await Campus.findById(req.params.campusId, {
       include: [{model: Student}]
     });
     res.send(response)
   }
-  catch(error){
-    next(error)
+  catch (err){
+    next(err)
   }
 });
 
@@ -33,8 +33,8 @@ router.post('/', async (req, res, next) => {
     const campus = await Campus.create(req.body)
     const returnMessage = campus.toJSON();
     res.send(returnMessage);
-  } catch (error) {
-    next(error);
+  } catch (err) {
+    next(err);
   }
 });
 
@@ -50,8 +50,27 @@ router.delete('/:campusId', async (req, res, next) => {
       include: [{model: Student}]
     });
     res.send(response)
-  } catch (error) {
-    next(error);
+  } catch (err) {
+    next(err);
   }
 });
+
+// PUT /api/campuses/:campusId
+router.put('/:campusId', async (req, res, next) => {
+  try {
+    await Campus.update(
+      req.body,
+      {where: {
+        id: req.params.campusId
+      }})
+      const response = await Campus.findAll({
+        include: [{model: Student}]
+      });
+      res.send(response)
+  }
+  catch (err) {
+    next(err)
+  }
+})
+
 module.exports = router

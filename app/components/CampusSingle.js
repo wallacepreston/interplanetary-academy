@@ -2,8 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {fetchSelectedCampus} from '../reducers/campuses-reducer'
 import {Link, withRouter} from 'react-router-dom';
-
-
+import CampusUpdate from './CampusUpdate'
 
 class CampusSingle extends React.Component {
   constructor () {
@@ -16,7 +15,13 @@ class CampusSingle extends React.Component {
     await this.props.fetchSelectedCampus(this.props.match.params.campusId)
     this.setState({loading: false});
   }
+  componentDidUpdate(prevProps) {
+    if (prevProps.campus !== this.props.campus) {
+      this.forceUpdate()
+    }
+  }
   render () {
+    console.log('>>>>>>>>>> (CampusSingle: inside render): this.props.campus: ', this.props.campus)
     const campus = this.props.campus
     const students = this.props.campus.students
     const campuses = this.props.campuses
@@ -38,7 +43,6 @@ class CampusSingle extends React.Component {
             </div>
           )})}
         </div>
-        
       )
     }
     return (
@@ -56,7 +60,7 @@ class CampusSingle extends React.Component {
         ))
         : <p>No Students to Show</p>
       }
-      
+      <CampusUpdate campusId={campus.id} />
     </div>
   )}
 }

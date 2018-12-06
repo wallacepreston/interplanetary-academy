@@ -55,4 +55,22 @@ router.delete('/:studentId', async (req, res, next) => {
   }
 });
 
+// PUT /api/students/:studentId
+router.put('/:studentId', async (req, res, next) => {
+  try {
+    await Student.update(
+      req.body,
+      {where: {
+        id: req.params.studentId
+      }})
+      const response = await Student.findAll({
+        include: [{model: Campus}]
+      });
+      res.send(response)
+  }
+  catch (err) {
+    next(err)
+  }
+})
+
 module.exports = router

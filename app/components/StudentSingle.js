@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {fetchSelectedStudent} from '../reducers/students-reducer'
 import {Link, withRouter} from 'react-router-dom';
+import StudentUpdate from './StudentUpdate'
 
 
 class StudentSingle extends React.Component {
@@ -85,6 +86,7 @@ class StudentSingle extends React.Component {
             }
           </div>
         </div>
+        <StudentUpdate studentId={student.id} />
       </div>
   )}
 }
