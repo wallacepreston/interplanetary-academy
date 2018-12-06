@@ -21,19 +21,45 @@ class CampusList extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="container-fluid justify-content-center">
         <h3>Campuses:</h3>
-        <Link to={`/campuses/add`}>Add a Campus</Link>
-        {console.log(this.props.campuses)}
-        <ul>
-          {this.props.campuses.map(campus => (
-              <li key={campus.id}>
-                <Link to={'/campuses/' + campus.id}>{campus.name}</Link>  :
-                <img src={campus.imageURL} height="70" width="70" /> 
-                <button type="button" onClick={() => this.removeCampus(campus.id)}>X</button>
-              </li>
-            ))}
-        </ul>
+        <button type="button" className="btn btn-outline-primary" >
+          <Link to={`/campuses/add`}>Click to Add a Campus</Link>
+        </button>
+        <div className="container">
+          <div className="row h3">
+            <div className="col text-center">
+              Name
+            </div>
+            <div className="col text-center">
+              Image
+            </div>
+            <div className="col text-center">
+              Details
+            </div>
+            <div className="col text-center">
+              Remove
+            </div>
+          </div>        
+          {
+            this.props.campuses.map(campus => (
+              <div className="row h5" key={campus.id}>
+                <div className="col text-center">
+                  <Link to={`/campuses/${campus.id}`}>{campus.name}</Link>
+                </div>
+                <div className="col text-center">
+                  <img src={campus.imageURL} height="70" width="70" /> 
+                </div>
+                <div className="col text-center">
+                  <button type="button" className="btn btn-light" ><Link to={`/campuses/${campus.id}`}>Details</Link></button>              
+                </div>
+                <div className="col text-center">
+                  <button type="button" className="btn btn-danger" onClick={() => this.removeCampus(campus.id)}>Remove</button>
+                </div>
+              </div>
+            ))
+          }
+        </div>
       </div>
     )
   }

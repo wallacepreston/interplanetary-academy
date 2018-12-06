@@ -26,18 +26,22 @@ class Root extends React.Component {
         </div>
       </nav>
       <main className="container-fluid">
-        <h1>Margaret Hamilton Academy of JavaScript</h1>
+        <h1>Wallace Academy of JavaScript</h1>
       </main>
-        <Switch>
-          <Route exact path='/campuses' component={CampusList} />
-          <Route exact path='/students' component={StudentList} />
-          <Route exact path='/campuses/add' component={CampusAdd} />
-          <Route path='/students/add' component={StudentAdd} />
-          <Route exact path='/campuses/:campusId' component={CampusSingle} />
-          <Route exact path='/students/:studentId' component={StudentSingle} />
-          <Route path="*" component={NotFound} />
-          
-        </Switch>
+      <div className="justify-content-center">
+        <div className="col text-center"> 
+          <Switch>
+            <Route exact path='/campuses' component={CampusList} />
+            <Route exact path='/students' component={StudentList} />
+            <Route exact path='/campuses/add' component={CampusAdd} />
+            <Route path='/students/add' component={StudentAdd} />
+            <Route exact path='/campuses/:campusId' component={CampusSingle} />
+            <Route exact path='/students/:studentId' component={StudentSingle} />
+            <Route path="*" component={NotFound} />
+            
+          </Switch>
+        </div>
+      </div>
     </div>
   )}
 }

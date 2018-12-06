@@ -20,49 +20,44 @@ class StudentList extends React.Component {
   }
   render() {
     return (
-      <div>
-        <div className="container-fluid">
-          <div className="row justify-content-md-center">
-            <div className="col-md-auto">
-              <h3>Students:</h3>
-              <Link to="/students/add">(Click to Add a Student)</Link>
+      <div className="container-fluid justify-content-center">
+        <h3>Students:</h3>
+        <button type="button" className="btn btn-outline-primary" >
+          <Link to="/students/add">Click to Add a Student</Link>
+        </button>
+        <div className="container">
+            <div className="row h3">
+              <div className="col text-center">
+                Name
+              </div>
+              <div className="col text-center">
+                Image
+              </div>
+              <div className="col text-center">
+                Details
+              </div>
+              <div className="col text-center">
+                Remove
+              </div>
             </div>
-          </div>
-            <div className="container">
-                <div className="row justify-content-center h3">
-                  <div className="col text-center">
-                    Name
-                  </div>
-                  <div className="col text-center">
-                    Image
-                  </div>
-                  <div className="col text-center">
-                    {''}
-                  </div>
-                </div>
-              {this.props.students.map(student => (
-                <div className="row justify-content-center h5" key={student.id}>
-                  <div className="col text-center">
-                    <Link to={`/students/${student.id}`}>{student.firstName} {student.lastName}</Link>
-                  </div>
-                  <div className="col text-center">
-                    <img src={student.imageURL} height="70" width="70" />
-                  </div>
-                  <div className="col text-center">
-                    <button type="button" className="btn btn-light" ><Link to={`/students/${student.id}`}>Details</Link></button>              
-                  </div>
-                  <div className="col text-center">
-                    <button type="button" className="btn btn-danger" onClick={() => this.removeStudent(student.id)}>Remove</button>              
-                  </div>
-                </div>
-                ))
-              }
+          {this.props.students.map(student => (
+            <div className="row h5" key={student.id}>
+              <div className="col text-center">
+                <Link to={`/students/${student.id}`}>{student.firstName} {student.lastName}</Link>
+              </div>
+              <div className="col text-center">
+                <img src={student.imageURL} height="70" width="70" />
+              </div>
+              <div className="col text-center">
+                <button type="button" className="btn btn-light" ><Link to={`/students/${student.id}`}>Details</Link></button>              
+              </div>
+              <div className="col text-center">
+                <button type="button" className="btn btn-danger" onClick={() => this.removeStudent(student.id)}>Remove</button>              
+              </div>
             </div>
-          
+            ))
+          }
         </div>
-        <ul>
-          
-        </ul>
       </div>
     )
   }
