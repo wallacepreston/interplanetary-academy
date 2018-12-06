@@ -48,6 +48,9 @@ const Student = db.define('student', {
       if (student.campusId === ''){
         student.campusId = null;
       }
+      if (student.gpa === ''){
+        student.gpa = null;
+      }
     }
   }
 })

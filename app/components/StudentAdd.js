@@ -46,42 +46,80 @@ class StudentAdd extends React.Component {
     return (
       <div>
         <h3>Add a Student:</h3>
-        {/* {console.log(props.students)} */}
         <form onSubmit={this.handleSubmit}>
-          <div>
-            <label htmlFor="firstName">First Name: </label>
-            <input type="text" name="firstName" placeholder="Enter student first name" value={this.state.firstName} onChange={this.handleChange} />
-            {this.state.firstName === '' ? <span className="alert alert-warning" role="alert">Required!</span> : ''}
+          <div className="container-fluid justify-content-center">
+            <div className="row h3">
+              <div className="col text-center">
+                <label htmlFor="firstName">First Name: </label>
+              </div>
+              <div className="col text-center">
+                <input type="text" name="firstName" placeholder="Enter student first name" value={this.state.firstName} onChange={this.handleChange} />
+              </div>
+              <div className="col text-center">
+                {this.state.firstName === '' ? <span className="alert alert-warning" role="alert">Required</span> : ''}
+              </div>
+            </div>
+            <div className="row h3">
+              <div className="col text-center">
+                <label htmlFor="lastName">Last Name: </label>
+              </div>
+              <div className="col text-center">
+                <input type="text" name="lastName" placeholder="Enter student last name" value={this.state.lastName} onChange={this.handleChange} />
+              </div>
+              <div className="col text-center">
+                {this.state.lastName === '' ? <span className="alert alert-warning" role="alert">Required</span> : ''}
+              </div>
+            </div>
+            <div className="row h3">
+              <div className="col text-center">
+                <label htmlFor="email">Email: </label>
+              </div>
+              <div className="col text-center">
+                <input type="text" name="email" placeholder="Enter student email" value={this.state.email} onChange={this.handleChange} />
+              </div>
+              <div className="col text-center">
+                {this.state.email === '' ? <span className="alert alert-warning" role="alert">Required!</span> : ''}
+              </div>
+            </div>
+            <div className="row h3">
+              <div className="col text-center">
+                <label htmlFor="gpa">GPA: </label>
+              </div>
+              <div className="col text-center">
+                <input type="text" name="gpa" placeholder="Enter student gpa" value={this.state.gpa} onChange={this.handleChange} />
+              </div>
+              <div className="col text-center">
+                {this.state.gpa === '' ? <span className="note">Optional, but it helps.</span> : ''}
+              </div>
+            </div>
+            <div className="row h3">
+              <div className="col text-center">
+                <label htmlFor="imageURL">Image URL: </label>
+              </div>
+              <div className="col text-center">
+                <input type="text" name="imageURL" placeholder="Enter student image URL" value={this.state.imageURL} onChange={this.handleChange} />
+              </div>
+              <div className="col text-center">
+                {this.state.imageURL === '' ? <span className="note">We'll choose one for you if you don't.</span> : ''}
+              </div>
+            </div>
+            <div className="row h3">
+              <div className="col text-center">
+                <label htmlFor="campusId">Campus: </label>
+              </div>
+              <div className="col text-center">
+                <select name="campusId" value={this.state.campusId} onChange={this.handleChange}>
+                  {this.props.campuses.map(campus => (
+                    <option key={campus.id} value={campus.id}>{campus.name}</option> 
+                  ))}
+                </select>
+              </div>
+              <div className="col text-center">
+                {this.state.campusId === '' ? <span className="note">Leave blank if you haven't decided.</span> : ''}
+              </div>
+            </div>
           </div>
-          <div>
-            <label htmlFor="lastName">Last Name: </label>
-            <input type="text" name="lastName" placeholder="Enter student last name" value={this.state.lastName} onChange={this.handleChange} />
-            {this.state.lastName === '' ? <span className="alert alert-warning" role="alert">Required!</span> : ''}
-          </div>
-          <div>
-            <label htmlFor="email">Email: </label>
-            <input type="text" name="email" placeholder="Enter student email" value={this.state.email} onChange={this.handleChange} />{this.state.email === '' ? <span className="alert alert-warning" role="alert">Required!</span> : ''}
-          </div>
-          <div>
-            <label htmlFor="gpa">GPA: </label>
-            <input type="text" name="gpa" placeholder="Enter student gpa" value={this.state.gpa} onChange={this.handleChange} />
-            {this.state.gpa === '' ? <span className="note">Optional, but it helps.</span> : ''}
-          </div>
-          <div>
-            <label htmlFor="imageURL">Image URL: </label>
-            <input type="text" name="imageURL" placeholder="Enter student image URL" value={this.state.imageURL} onChange={this.handleChange} />
-            {this.state.imageURL === '' ? <span className="note">We'll choose one for you if you don't.</span> : ''}
-          </div>
-          <div>
-            <label htmlFor="campusId">Campus: </label>
-            <select name="campusId" value={this.state.campusId} onChange={this.handleChange}>
-              {this.props.campuses.map(campus => (
-                <option key={campus.id} value={campus.id}>{campus.name}</option> 
-              ))}
-            </select>
-            {this.state.campusId === '' ? <span className="note">Leave blank if you haven't decided.</span> : ''}
-          </div>
-            <button type="submit">Add Student</button>
+            <button type="submit" className="btn btn-primary">Add Student</button>
         </form>
       </div>
     )

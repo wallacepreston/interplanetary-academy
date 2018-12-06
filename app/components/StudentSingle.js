@@ -40,7 +40,6 @@ class StudentSingle extends React.Component {
       )
     }
     return (
-    <div className="container">
       <div className="container">
         <div className="row h3">
           <div className="col text-center">
@@ -87,7 +86,6 @@ class StudentSingle extends React.Component {
           </div>
         </div>
       </div>
-    </div>
   )}
 }
 

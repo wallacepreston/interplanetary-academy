@@ -27,7 +27,7 @@ class CampusSingle extends React.Component {
         <div>Loading. Standby...</div>
       );
     }
-    else if(!students){
+    else if(!campus.id){
       return (
         <div>
           The campus you entered does not exist. Choose from one of the existing campuses:
@@ -50,9 +50,9 @@ class CampusSingle extends React.Component {
       {
         students.length
         ? students.map(student => (
-          <ul key={student.id}>
-            <li><Link to={`/students/${student.id}`}>{student.firstName} {student.lastName}</Link></li>
-          </ul>
+          <p key={student.id}>
+            <Link to={`/students/${student.id}`}>{student.firstName} {student.lastName}</Link>
+          </p>
         ))
         : <p>No Students to Show</p>
       }

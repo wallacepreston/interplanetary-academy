@@ -37,29 +37,54 @@ class CampusAdd extends React.Component {
     return (
       <div>
         <h3>Add a Campus:</h3>
-        {/* {console.log(props.campuses)} */}
         <form onSubmit={this.handleSubmit}>
-          <div>
-            <label htmlFor="name">Name: </label>
-            <input type="text" name="name" placeholder="Enter campus name" value={this.state.name} onChange={this.handleChange} />
-            {this.state.name === '' ? <span className="warning">Required!</span> : ''}
+          <div className="container-fluid justify-content-center">
+            <div className="row h3">
+              <div className="col text-center">
+                <label htmlFor="name">Name: </label>
+              </div>
+              <div className="col text-center">
+                <input type="text" name="name" placeholder="Enter campus name" value={this.state.name} onChange={this.handleChange} />
+              </div>
+              <div className="col text-center">
+                {this.state.name === '' ? <span className="alert alert-warning" role="alert">Required</span> : ''}
+              </div>
+            </div>
+            <div className="row h3">
+              <div className="col text-center">
+                <label htmlFor="address">Address: </label>
+              </div>
+              <div className="col text-center">
+                <input type="text" name="address" placeholder="Enter campus address" value={this.state.address} onChange={this.handleChange} />
+              </div>
+              <div className="col text-center">
+                {this.state.address === '' ? <span className="alert alert-warning" role="alert">Required</span> : ''}
+              </div>
+            </div>
+            <div className="row h3">
+              <div className="col text-center">
+                <label htmlFor="description">Description: </label>
+              </div>
+              <div className="col text-center">
+                <input type="text" name="description" placeholder="Enter campus description" value={this.state.description} onChange={this.handleChange} />
+              </div>
+              <div className="col text-center">
+                {this.state.description === '' ? <span className="note">Optional, but we'd love a description.</span> : ''}
+              </div>
+            </div>
+            <div className="row h3">
+              <div className="col text-center">
+                <label htmlFor="imageURL">Image URL: </label>
+              </div>
+              <div className="col text-center">
+                <input type="text" name="imageURL" placeholder="Enter campus image URL" value={this.state.imageURL} onChange={this.handleChange} />
+              </div>
+              <div className="col text-center">
+                {this.state.imageURL === '' ? <span className="note">We'll choose one for you if you don't.</span> : ''}
+              </div>
+            </div>
           </div>
-          <div>
-            <label htmlFor="address">Address: </label>
-            <input type="text" name="address" placeholder="Enter campus address" value={this.state.address} onChange={this.handleChange} />
-            {this.state.address === '' ? <span className="warning">Required!</span> : ''}
-          </div>
-          <div>
-            <label htmlFor="description">Description: </label>
-            <input type="text" name="description" placeholder="Enter campus description" value={this.state.description} onChange={this.handleChange} />
-            {this.state.description === '' ? <span className="note">Optional, but we'd love a description.</span> : ''}
-          </div>
-          <div>
-            <label htmlFor="imageURL">Image URL: </label>
-            <input type="text" name="imageURL" placeholder="Enter campus image URL" value={this.state.imageURL} onChange={this.handleChange} />
-            {this.state.imageURL === '' ? <span className="note">We'll choose one for you if you don't.</span> : ''}
-          </div>
-            <button type="submit">Add Campus</button>
+          <button type="submit" className="btn btn-primary">Add Campus</button>
         </form>
       </div>
     )
