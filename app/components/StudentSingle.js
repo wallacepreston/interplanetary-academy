@@ -25,7 +25,7 @@ class StudentSingle extends React.Component {
         <div>Loading. Standby...</div>
       );
     }
-    else if(!student.id){
+    else if (!student.id){
       return (
         <div>
           The student you entered does not exist. Choose from one of the existing students:
