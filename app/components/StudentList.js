@@ -21,18 +21,47 @@ class StudentList extends React.Component {
   render() {
     return (
       <div>
-        <h3>Students:</h3>
-        <Link to="/students/add">Add a Student</Link>
-        {console.log(this.props.students)}
+        <div className="container-fluid">
+          <div className="row justify-content-md-center">
+            <div className="col-md-auto">
+              <h3>Students:</h3>
+              <Link to="/students/add">(Click to Add a Student)</Link>
+            </div>
+          </div>
+            <div className="container">
+                <div className="row justify-content-center h3">
+                  <div className="col text-center">
+                    Name
+                  </div>
+                  <div className="col text-center">
+                    Image
+                  </div>
+                  <div className="col text-center">
+                    {''}
+                  </div>
+                </div>
+              {this.props.students.map(student => (
+                <div className="row justify-content-center h5" key={student.id}>
+                  <div className="col text-center">
+                    <Link to={`/students/${student.id}`}>{student.firstName} {student.lastName}</Link>
+                  </div>
+                  <div className="col text-center">
+                    <img src={student.imageURL} height="70" width="70" />
+                  </div>
+                  <div className="col text-center">
+                    <button type="button" className="btn btn-light" ><Link to={`/students/${student.id}`}>Details</Link></button>              
+                  </div>
+                  <div className="col text-center">
+                    <button type="button" className="btn btn-danger" onClick={() => this.removeStudent(student.id)}>Remove</button>              
+                  </div>
+                </div>
+                ))
+              }
+            </div>
+          
+        </div>
         <ul>
-          {this.props.students.map(student => (
-              <li key={student.id}>
-              <Link to={`/students/${student.id}`}>{student.firstName} {student.lastName}</Link>
-                :
-                <img src={student.imageURL} height="70" width="70" />
-                <button type="button" onClick={() => this.removeStudent(student.id)}>X</button>
-              </li>
-            ))}
+          
         </ul>
       </div>
     )

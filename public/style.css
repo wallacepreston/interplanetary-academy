@@ -32,6 +32,13 @@ main {
   justify-content: center;
 }
 
+#header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .warning {
   padding: 0 0.5em;
   font-size: 1em;
@@ -48,4 +55,8 @@ main {
   background-color: rgb(59, 59, 59);
   color: white;
   margin-left: 1em;
+}
+
+.table-content {
+  width: 70%
 }

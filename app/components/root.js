@@ -21,10 +21,13 @@ class Root extends React.Component {
     return (
     <div>
       <nav>
-        Welcome! What would you like to view? <Link to="/students">Students</Link> | <Link to="/campuses">Campuses</Link>
+        <div className="container">
+          Welcome! What would you like to view? <Link to="/students">Students</Link> | <Link to="/campuses">Campuses</Link>
+        </div>
       </nav>
-      <main>
+      <main className="container-fluid">
         <h1>Margaret Hamilton Academy of JavaScript</h1>
+      </main>
         <Switch>
           <Route exact path='/campuses' component={CampusList} />
           <Route exact path='/students' component={StudentList} />
@@ -35,7 +38,6 @@ class Root extends React.Component {
           <Route path="*" component={NotFound} />
           
         </Switch>
-      </main>
     </div>
   )}
 }

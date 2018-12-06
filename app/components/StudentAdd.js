@@ -51,16 +51,16 @@ class StudentAdd extends React.Component {
           <div>
             <label htmlFor="firstName">First Name: </label>
             <input type="text" name="firstName" placeholder="Enter student first name" value={this.state.firstName} onChange={this.handleChange} />
-            {this.state.firstName === '' ? <span className="warning">Required!</span> : ''}
+            {this.state.firstName === '' ? <span className="alert alert-warning" role="alert">Required!</span> : ''}
           </div>
           <div>
             <label htmlFor="lastName">Last Name: </label>
             <input type="text" name="lastName" placeholder="Enter student last name" value={this.state.lastName} onChange={this.handleChange} />
-            {this.state.lastName === '' ? <span className="warning">Required!</span> : ''}
+            {this.state.lastName === '' ? <span className="alert alert-warning" role="alert">Required!</span> : ''}
           </div>
           <div>
             <label htmlFor="email">Email: </label>
-            <input type="text" name="email" placeholder="Enter student email" value={this.state.email} onChange={this.handleChange} />{this.state.email === '' ? <span className="warning">Required!</span> : ''}
+            <input type="text" name="email" placeholder="Enter student email" value={this.state.email} onChange={this.handleChange} />{this.state.email === '' ? <span className="alert alert-warning" role="alert">Required!</span> : ''}
           </div>
           <div>
             <label htmlFor="gpa">GPA: </label>
