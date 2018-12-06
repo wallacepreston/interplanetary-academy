@@ -25,25 +25,29 @@ class StudentsUpdate extends React.Component {
   }
   async handleSubmit (event) {
     event.preventDefault()
-    const name = this.state.name;
+    const firstName = this.state.firstName;
+    const lastName = this.state.lastName;
+    const email = this.state.email;
+    const gpa = this.state.gpa;
     const imageURL = this.state.imageURL;
-    const address = this.state.address;
-    const description = this.state.description;
     const campusId = this.state.campusId;
     let stateToPass = {
       id: this.props.studentId
     }
-    if (name !== ''){
-      stateToPass.name = name
+    if (firstName !== ''){
+      stateToPass.firstName = firstName
+    }
+    if (lastName !== ''){
+      stateToPass.lastName = lastName
+    }
+    if (email !== ''){
+      stateToPass.email = email
+    }
+    if (gpa !== ''){
+      stateToPass.gpa = gpa
     }
     if (imageURL !== ''){
       stateToPass.imageURL = imageURL
-    }
-    if (address !== ''){
-      stateToPass.address = address
-    }
-    if (description !== ''){
-      stateToPass.description = description
     }
     if (campusId !== ''){
       stateToPass.campusId = campusId

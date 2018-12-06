@@ -21,12 +21,9 @@ class CampusSingle extends React.Component {
     }
   }
   render () {
-    console.log('>>>>>>>>>> (CampusSingle: inside render): this.props.campus: ', this.props.campus)
     const campus = this.props.campus
     const students = this.props.campus.students
     const campuses = this.props.campuses
-    console.log('campus: ', campus)
-    console.log('students: ',this.props.campus.students)
     if (this.state.loading) {
       return (
         <div>Loading. Standby...</div>

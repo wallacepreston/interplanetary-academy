@@ -20,7 +20,6 @@ class StudentSingle extends React.Component {
     const student = this.props.student
     const campus = this.props.student.campus
     const students = this.props.students
-    console.log('campus: ', campus)
     if (this.state.loading) {
       return (
         <div>Loading. Standby...</div>
