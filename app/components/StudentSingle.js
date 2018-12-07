@@ -4,7 +4,6 @@ import {fetchSelectedStudent} from '../reducers/students-reducer'
 import {Link, withRouter} from 'react-router-dom';
 import StudentUpdate from './StudentUpdate'
 import Loading from './Loading'
-import { isNumber } from 'util';
 
 
 class StudentSingle extends React.Component {

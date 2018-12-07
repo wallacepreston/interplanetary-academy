@@ -20,15 +20,15 @@ class CampusSingle extends React.Component {
   }
   async componentDidMount () {
     let urlId = this.props.match.params.campusId
-    if(isNaN(urlId)) {
+    if (isNaN(Number(urlId))) {
       urlId = 1000
     }
     await this.props.fetchSelectedCampus(urlId)
     this.setState({loading: false});
   }
-  componentDidUpdate(prevProps) {
-    if (prevProps.campus !== this.props.campus) {
-      this.forceUpdate()
+  async componentDidUpdate(prevProps) {
+    if (prevProps.match.params.campusId !== this.props.match.params.campusId) {
+      await this.props.fetchSelectedCampus(this.props.match.params.campusId)
     }
   }
   handleChange (event) {
