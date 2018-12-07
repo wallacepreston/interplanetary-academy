@@ -10,7 +10,8 @@
     "build-watch": "webpack -w",
     "build": "webpack",
     "start": "npm run build & npm run start-server-deploy",
-    "seed": "node seed.js"
+    "seed": "node seed.js",
+    "heroku-postbuild": "npm run build"
   },
   "keywords": [
     "react",
