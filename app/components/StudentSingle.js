@@ -4,6 +4,7 @@ import {fetchSelectedStudent} from '../reducers/students-reducer'
 import {Link, withRouter} from 'react-router-dom';
 import StudentUpdate from './StudentUpdate'
 import Loading from './Loading'
+import { isNumber } from 'util';
 
 
 class StudentSingle extends React.Component {
@@ -14,8 +15,17 @@ class StudentSingle extends React.Component {
     }
   }
   async componentDidMount () {
-    await this.props.fetchSelectedStudent(this.props.match.params.studentId)
+    let urlId = this.props.match.params.studentId
+    if(isNaN(Number(urlId))) {
+      urlId = 1000
+    }
+    await this.props.fetchSelectedStudent(urlId)
     this.setState({loading: false});
+  }
+  async componentDidUpdate(prevProps) {
+    if (prevProps.match.params.studentId !== this.props.match.params.studentId) {
+      await this.props.fetchSelectedStudent(this.props.match.params.studentId)
+    }
   }
   render () {
     const student = this.props.student
@@ -33,7 +43,7 @@ class StudentSingle extends React.Component {
           {students.map(currStudent => {
             return (
             <div key={currStudent.id}>
-              <Link to={`/campuses/${currStudent.id}`}>{currStudent.firstName} {currStudent.lastName}</Link>
+              <Link to={`/students/${currStudent.id}`}>{currStudent.firstName} {currStudent.lastName}</Link>
             </div>
           )})}
         </div>

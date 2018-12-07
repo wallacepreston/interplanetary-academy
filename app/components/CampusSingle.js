@@ -19,7 +19,11 @@ class CampusSingle extends React.Component {
     }
   }
   async componentDidMount () {
-    await this.props.fetchSelectedCampus(this.props.match.params.campusId)
+    let urlId = this.props.match.params.campusId
+    if(isNaN(urlId)) {
+      urlId = 1000
+    }
+    await this.props.fetchSelectedCampus(urlId)
     this.setState({loading: false});
   }
   componentDidUpdate(prevProps) {
@@ -67,9 +71,7 @@ class CampusSingle extends React.Component {
     const students = this.props.campus.students
     const campuses = this.props.campuses
     if (this.state.loading) {
-      return (
-        <div>Loading. Standby...</div>
-      );
+      return <Loading />
     }
     else if (!campus.id){
       if (this.state.loading) {
@@ -87,7 +89,9 @@ class CampusSingle extends React.Component {
         </div>
       )
     }
-
+    if (this.state.loading) {
+      return <Loading />
+    }
     return (
     <div>
       <h3>Campus: {campus.name}</h3> <img src={campus.imageURL} />
