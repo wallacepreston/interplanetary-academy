@@ -6,9 +6,10 @@
   "scripts": {
     "start:dev": "npm run build-watch & npm run start-server",
     "start-server": "nodemon main.js -e html,js,css --ignore public",
-    "start-server-deploy": "nodemon main.js",
+    "start-server-deploy": "node main.js",
     "build-watch": "webpack -w",
-    "start": "npm run build-watch & npm run start-server-deploy",
+    "build": "webpack",
+    "start": "npm run build & npm run start-server-deploy",
     "seed": "node seed.js"
   },
   "keywords": [
