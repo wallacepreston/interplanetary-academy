@@ -42,6 +42,13 @@ export const updateStudent = (student) => {
   }
 }
 
+export const deleteStudent = (studentId) => {
+  return async (dispatch) => {
+    const {data} = await axios.delete(`/api/students/${studentId}`);
+    dispatch(getStudents(data))
+  }
+}
+
 // INITIAL STATE
 
 const initialState = {

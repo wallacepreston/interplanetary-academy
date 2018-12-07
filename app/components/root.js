@@ -36,7 +36,7 @@ class Root extends React.Component {
     <div>
       <nav>
         <div className="container">
-        Wallace Academy of JavaScript | Welcome! What would you like to view? <Link to="/students">Students</Link> | <Link to="/campuses">Campuses</Link>
+        Wallace Academy of JavaScript | <Link to="/">Home</Link> | Welcome! What would you like to view? <Link to="/students">Students</Link> | <Link to="/campuses">Campuses</Link>
         </div>
       </nav>
       

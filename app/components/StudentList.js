@@ -1,8 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import {Link, withRouter} from 'react-router-dom';
-import axios from 'axios'
-import {getStudents} from '../reducers/students-reducer'
+import {getStudents, deleteStudent} from '../reducers/students-reducer'
 import Loading from './Loading'
 
 class StudentList extends React.Component {
@@ -20,8 +19,7 @@ class StudentList extends React.Component {
   }
   async removeStudent(studentId){
     try {
-      const {data} = await axios.delete(`/api/students/${studentId}`)
-      this.props.getStudents(data)
+      await this.props.deleteStudent(studentId)
     }
     catch (err) {
       console.error(err)
@@ -79,7 +77,8 @@ const mapStateToProps = (state) => ({
   students: state.students.list
 })
 const mapDispatchToProps = dispatch => ({
-  getStudents: (students) => dispatch(getStudents(students))
+  getStudents: (students) => dispatch(getStudents(students)),
+  deleteStudent: (studentId) => dispatch(deleteStudent(studentId))
 })
 
 const StudentListContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(StudentList))

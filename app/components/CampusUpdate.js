@@ -63,7 +63,7 @@ class CampusUpdate extends React.Component {
     }
     return (
       <div>
-        <h3>Update a Campus:</h3>
+        <h3>Edit this Campus:</h3>
         <div className="alert alert-secondary" role="alert">All fields optional. Only update what you would like to.</div>
         <form onSubmit={this.handleSubmit}>
           <div className="container-fluid justify-content-center">
@@ -90,7 +90,7 @@ class CampusUpdate extends React.Component {
                 <label htmlFor="description">Description: </label>
               </div>
               <div className="col text-center">
-                <input type="text" name="description" placeholder="Enter campus description" value={this.state.description} onChange={this.handleChange} />
+                <input type="text-area" name="description" placeholder="Enter campus description" value={this.state.description} onChange={this.handleChange} />
               </div>
              
             </div>

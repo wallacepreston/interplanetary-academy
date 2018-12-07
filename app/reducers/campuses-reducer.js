@@ -43,6 +43,12 @@ export const updateCampus = (campus) => {
   }
 }
 
+export const deleteCampus = (campusId) => {
+  return async (dispatch) => {
+    const {data} = await axios.delete(`/api/campuses/${campusId}`);
+    dispatch(getCampuses(data))
+  }
+}
 // INITIAL STATE
 
 const initialState = {
