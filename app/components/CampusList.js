@@ -37,20 +37,26 @@ class CampusList extends React.Component {
           <Link to="/campuses/add">Click to Add a Campus</Link>
         </button>
         <div className="container">
-          <div className="row h3">
-            <div className="col text-center">
-              Name
-            </div>
-            <div className="col text-center">
-              Image
-            </div>
-            <div className="col text-center">
-              Details
-            </div>
-            <div className="col text-center">
-              Remove
-            </div>
-          </div>        
+          {
+            !this.props.campuses[0]
+            ? <div className="alert alert-primary h1" role="alert">No Campuses to Show</div>
+            : 
+            <div className="row h3">
+              <div className="col text-center">
+                Name
+              </div>
+              <div className="col text-center">
+                Image
+              </div>
+              <div className="col text-center">
+                Details
+              </div>
+              <div className="col text-center">
+                Remove
+              </div>
+            </div>  
+          }
+                
           {
             this.props.campuses.map(campus => {
               let numStudents = campus.students.length

@@ -36,6 +36,10 @@ class StudentList extends React.Component {
           <Link to="/students/add">Click to Add a Student</Link>
         </button>
         <div className="container">
+        {
+            !this.props.students[0]
+            ? <div className="alert alert-primary h1" role="alert">No Students to Show</div>
+            :
             <div className="row h3">
               <div className="col text-center">
                 Name
@@ -50,6 +54,7 @@ class StudentList extends React.Component {
                 Remove
               </div>
             </div>
+        }
           {this.props.students.map(student => (
             <div className="row h5" key={student.id}>
               <div className="col text-center">

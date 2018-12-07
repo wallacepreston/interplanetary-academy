@@ -84,6 +84,7 @@ class CampusSingle extends React.Component {
       }
         </div>
       </div>
+      
       <CampusUpdate campusId={campus.id} />
     </div>
   )}
