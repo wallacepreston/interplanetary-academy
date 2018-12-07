@@ -81,7 +81,8 @@ class StudentSingle extends React.Component {
             {
               campus
               ? <p><Link to={`/campuses/${campus.id}`}>{campus.name}</Link></p>
-              : <p>No Campus (Not Yet Enrolled)</p>
+              : <p className="alert alert-primary" role="alert">No Campus (Not Yet Enrolled)</p>
+              
             }
           </div>
         </div>

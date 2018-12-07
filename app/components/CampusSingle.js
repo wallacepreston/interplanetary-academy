@@ -80,7 +80,7 @@ class CampusSingle extends React.Component {
             <button type="button" className="btn btn-danger" onClick={() => this.removeFromCampus(student)}>Remove</button>
           </div>
         ))
-        : <p>No Students to Show</p>
+        : <div className="col alert alert-primary" role="alert"> <h4>There are No Students at this Campus</h4></div>
       }
         </div>
       </div>
