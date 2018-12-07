@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import axios from 'axios'
 import {addStudent} from '../reducers/students-reducer'
-
+import Loading from './Loading'
 
 class StudentAdd extends React.Component {
   constructor () {
@@ -14,10 +14,16 @@ class StudentAdd extends React.Component {
       email: '',
       gpa: '',
       imageURL: '',
-      campusId: ''
+      campusId: '', 
+      loading: true
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+  }
+  componentDidMount () {
+    this.setState({
+      loading: false
+    })
   }
   handleChange (event) {
     this.setState({
@@ -43,6 +49,9 @@ class StudentAdd extends React.Component {
     })
   }
   render () {
+    if (this.state.loading) {
+      return <Loading />
+    }
     return (
       <div>
         <h3>Add a Student:</h3>

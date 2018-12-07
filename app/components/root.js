@@ -11,13 +11,26 @@ import StudentAdd from './StudentAdd'
 import NotFound from './NotFound'
 import {fetchCampuses} from '../reducers/campuses-reducer'
 import {fetchStudents} from '../reducers/students-reducer'
+import Loading from './Loading';
 
 class Root extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      loading: true
+    }
+  }
   componentDidMount () {
     this.props.fetchCampuses()
     this.props.fetchStudents()
+    this.setState({
+      loading: false
+    })
   }
   render () {
+    if (this.state.loading) {
+      return <Loading />
+    }
     return (
     <div>
       <nav>

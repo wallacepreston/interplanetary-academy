@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {fetchSelectedCampus} from '../reducers/campuses-reducer'
 import {Link, withRouter} from 'react-router-dom';
 import CampusUpdate from './CampusUpdate'
+import Loading from './Loading'
 
 class CampusSingle extends React.Component {
   constructor () {
@@ -29,7 +30,10 @@ class CampusSingle extends React.Component {
         <div>Loading. Standby...</div>
       );
     }
-    else if(!campus.id){
+    else if (!campus.id){
+      if (this.state.loading) {
+        return <Loading />
+      }
       return (
         <div>
           The campus you entered does not exist. Choose from one of the existing campuses:

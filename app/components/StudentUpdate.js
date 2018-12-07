@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {updateStudent, fetchSelectedStudent} from '../reducers/students-reducer'
-
+import Loading from './Loading'
 
 class StudentsUpdate extends React.Component {
   constructor () {
@@ -13,10 +13,16 @@ class StudentsUpdate extends React.Component {
       email: '',
       gpa: '',
       imageURL: '',
-      campusId: ''
+      campusId: '',
+      loading: true
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+  }
+  componentDidMount () {
+    this.setState({
+      loading: false
+    })
   }
   handleChange (event) {
     this.setState({
@@ -65,6 +71,9 @@ class StudentsUpdate extends React.Component {
     this.props.fetchSelectedStudent(this.props.studentId)
   }
   render () {
+    if (this.state.loading) {
+      return <Loading />
+    }
     return (
       <div>
         <h3>Update a Student:</h3>

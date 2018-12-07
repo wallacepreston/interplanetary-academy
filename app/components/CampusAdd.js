@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import axios from 'axios'
 import {addCampus} from '../reducers/campuses-reducer'
+import Loading from './Loading'
 
 
 class CampusAdd extends React.Component {
@@ -12,10 +13,14 @@ class CampusAdd extends React.Component {
       name: '',
       imageURL: '',
       address: '',
-      description: ''
+      description: '',
+      loading: true
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+  }
+  componentDidMount () {
+    this.setState({loading: false});
   }
   handleChange (event) {
     this.setState({
@@ -24,16 +29,25 @@ class CampusAdd extends React.Component {
   }
   async handleSubmit (event) {
     event.preventDefault()
-    const {data} = await axios.post(`/api/campuses/`, this.state)
-    this.props.addCampus(data)
-    this.setState({
-      name: '',
-      imageURL: '',
-      address: '',
-      description: ''
-    })
+    try {
+      const {data} = await axios.post(`/api/campuses/`, this.state)
+      this.props.addCampus(data)
+      this.setState({
+        name: '',
+        imageURL: '',
+        address: '',
+        description: ''
+      })
+    } catch (err){
+      console.log(err)
+    }
   }
   render () {
+    if (this.state.loading) {
+      return (
+        <Loading />
+      );
+    }
     return (
       <div>
         <h3>Add a Campus:</h3>

@@ -3,11 +3,20 @@ import { connect } from 'react-redux';
 import {Link, withRouter} from 'react-router-dom';
 import axios from 'axios'
 import {getStudents} from '../reducers/students-reducer'
+import Loading from './Loading'
 
 class StudentList extends React.Component {
   constructor () {
     super()
     this.removeStudent = this.removeStudent.bind(this)
+    this.state = {
+      loading: true
+    }
+  }
+  componentDidMount () {
+    this.setState({
+      loading: false
+    })
   }
   async removeStudent(studentId){
     try {
@@ -19,6 +28,9 @@ class StudentList extends React.Component {
     }
   }
   render() {
+    if (this.state.loading) {
+      return <Loading />
+    }
     return (
       <div className="container-fluid justify-content-center">
         <h3>Students:</h3>

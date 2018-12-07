@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {fetchSelectedStudent} from '../reducers/students-reducer'
 import {Link, withRouter} from 'react-router-dom';
 import StudentUpdate from './StudentUpdate'
+import Loading from './Loading'
 
 
 class StudentSingle extends React.Component {
@@ -22,7 +23,7 @@ class StudentSingle extends React.Component {
     const students = this.props.students
     if (this.state.loading) {
       return (
-        <div>Loading. Standby...</div>
+        <Loading />
       );
     }
     else if (!student.id){

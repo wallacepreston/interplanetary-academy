@@ -3,12 +3,21 @@ import { connect } from 'react-redux';
 import {Link, withRouter} from 'react-router-dom';
 import axios from 'axios';
 import {getCampuses} from '../reducers/campuses-reducer'
+import Loading from './Loading'
 
 
 class CampusList extends React.Component {
   constructor () {
     super()
     this.removeCampus = this.removeCampus.bind(this)
+    this.state = {
+      loading: true
+    }
+  }
+  componentDidMount (){
+    this.setState({
+      loading: false
+    })
   }
   async removeCampus(campusId){
     try {
@@ -20,6 +29,9 @@ class CampusList extends React.Component {
     }
   }
   render() {
+    if (this.state.loading){
+      return <Loading />
+    }
     return (
       <div className="container-fluid justify-content-center">
         <h3>Campuses:</h3>

@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {updateCampus, fetchSelectedCampus} from '../reducers/campuses-reducer'
-
+import Loading from './Loading'
 
 class CampusUpdate extends React.Component {
   constructor () {
@@ -12,9 +12,15 @@ class CampusUpdate extends React.Component {
       imageURL: '',
       address: '',
       description: '',
+      loading: true
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+  }
+  componentDidMount () {
+    this.setState({
+      loading: false
+    })
   }
   handleChange (event) {
     this.setState({
@@ -52,6 +58,9 @@ class CampusUpdate extends React.Component {
     this.props.fetchSelectedCampus(this.props.campusId)
   }
   render () {
+    if (this.state.loading){
+      return <Loading />
+    }
     return (
       <div>
         <h3>Update a Campus:</h3>
