@@ -8,8 +8,8 @@ const Home = (props) => {
     <div>
       <div className="jumbotron">
         <div className="container">
-          <h1 className="display-3">Wallace Academy</h1>
-          <h2>of JavaScript</h2>
+          <h1 className="display-3">Interplanetary</h1>
+          <h2>Academy of JavaScript</h2>
           <p>We're glad you're here! Or that you're somewhere... We have campuses all over the nation, world, and ...yes, the Solar System. Stick around, and you can learn a bit about the students that are here, there, and everywhere!</p>
           <p><button className="btn btn-outline-primary btn-lg" type="button"><Link to="/campuses/">View Campuses &raquo;</Link></button></p>
         </div>

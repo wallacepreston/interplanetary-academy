@@ -59,12 +59,15 @@ class CampusList extends React.Component {
                 
           {
             this.props.campuses.map(campus => {
-              let numStudents = campus.students.length
+              let numStudents;
+              if (campus.students){
+                numStudents = campus.students.length
+              } 
               let studentNumDescriptor = 'students';
               if (numStudents === 1) {
                 studentNumDescriptor = 'student'
               }
-              else if(numStudents === 0){
+              else if(!numStudents){
                 numStudents = 'no'
               }
               return (

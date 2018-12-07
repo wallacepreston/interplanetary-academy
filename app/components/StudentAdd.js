@@ -48,6 +48,7 @@ class StudentAdd extends React.Component {
       campusId: ''
     })
   }
+  // eslint-disable-next-line complexity
   render () {
     if (this.state.loading) {
       return <Loading />
@@ -99,6 +100,10 @@ class StudentAdd extends React.Component {
               </div>
               <div className="col text-center">
                 {this.state.gpa === '' ? <span className="note">Optional, but it helps.</span> : ''}
+                {Number(this.state.gpa) > 4 || Number(this.state.gpa) < 0
+                ? <div className="alert alert-danger" role="alert"> GPA must be 0.0 to 4.0</div>
+                : ''
+                }
               </div>
             </div>
             <div className="row h3">
@@ -130,6 +135,7 @@ class StudentAdd extends React.Component {
           </div>
             <button type="submit" className="btn btn-primary">Add Student</button>
         </form>
+        
       </div>
     )
   }

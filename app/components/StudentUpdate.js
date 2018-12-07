@@ -77,7 +77,10 @@ class StudentsUpdate extends React.Component {
     return (
       <div>
         <h3>Update a Student:</h3>
-        <div className="alert alert-secondary" role="alert">All fields optional. Only update what you would like to.</div>
+        {Number(this.state.gpa) > 4 || Number(this.state.gpa) < 0
+        ? <div className="alert alert-danger" role="alert"> GPA must be a decimal from 0.0 to 4.0</div>
+        : <div className="alert alert-secondary" role="alert">All fields optional. Only update what you would like to.</div>
+        }
         <form onSubmit={this.handleSubmit}>
           <div className="container-fluid justify-content-center">
             <div className="row h3">
