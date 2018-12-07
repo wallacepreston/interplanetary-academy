@@ -19,11 +19,11 @@ const Home = (props) => {
         <div className="row">
           {props.campuses.map(campus => (
             <div className="col-md-4" key={campus.id}>
-            <h2>{campus.name}</h2>
-            <div><img src={campus.imageURL} width="70" height="70"/></div>
-            <p>{campus.description}</p>
-            <p><button className="btn btn-light" href="#" type="button"><Link to={`/campuses/${campus.id}`}>View Details &raquo;</Link></button></p>
-        </div>
+              <h2>{campus.name}</h2>
+              <div><img src={campus.imageURL} width="70" height="70"/></div>
+              <p>{campus.description}</p>
+              <p><button className="btn btn-light" href="#" type="button"><Link to={`/campuses/${campus.id}`}>View Details &raquo;</Link></button></p>
+            </div>
           ))}
         </div>
       </div>
@@ -34,11 +34,7 @@ const Home = (props) => {
 const mapStateToProps = (state) => ({
   campuses: state.campuses.list
 })
-// const mapDispatchToProps = dispatch => ({
-//   getCampuses: (campuses) => dispatch(getCampuses(campuses))
-// })
 
 const HomeContainer = withRouter(connect(mapStateToProps)(Home))
 
 export default HomeContainer
-

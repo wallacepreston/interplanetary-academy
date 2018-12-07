@@ -31,8 +31,8 @@ const Student = db.define('student', {
     defaultValue: 'https://www.fillmurray.com/g/155/300'
   },
   gpa: {
-    type: Sequelize.DECIMAL(10, 1), // I THINK this means I'm creating a decimal (the 10) with 1 decimal place (the 1).
-    validate: { // I THINK this means I'm allowing this grade to be between 0.0 and 4.0
+    type: Sequelize.DECIMAL(10, 1),
+    validate: {
       min: 0,
       max: 4
     }

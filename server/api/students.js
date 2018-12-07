@@ -41,7 +41,7 @@ router.post('/', async (req, res, next) => {
 // DELETE /api/students/:studentId
 router.delete('/:studentId', async (req, res, next) => {
   try {
-    const numDeleted = await Student.destroy({
+    await Student.destroy({
       where: {
         id: req.params.studentId
       }

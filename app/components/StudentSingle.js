@@ -37,7 +37,6 @@ class StudentSingle extends React.Component {
             </div>
           )})}
         </div>
-        
       )
     }
     return (

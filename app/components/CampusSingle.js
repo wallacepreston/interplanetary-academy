@@ -5,7 +5,6 @@ import {updateStudent} from '../reducers/students-reducer'
 import {Link, withRouter} from 'react-router-dom';
 import CampusUpdate from './CampusUpdate'
 import Loading from './Loading'
-import axios from 'axios'
 
 class CampusSingle extends React.Component {
   
@@ -102,5 +101,3 @@ const mapDispatchToProps = (dispatch) => ({
 const CampusSingleContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(CampusSingle))
 
 export default CampusSingleContainer
-
-

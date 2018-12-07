@@ -39,7 +39,7 @@ class Root extends React.Component {
         Wallace Academy of JavaScript | <Link to="/">Home</Link> | Welcome! What would you like to view? <Link to="/students">Students</Link> | <Link to="/campuses">Campuses</Link>
         </div>
       </nav>
-      
+
       <div className="justify-content-center">
         <div className="col text-center"> 
           <Switch>
@@ -51,7 +51,6 @@ class Root extends React.Component {
             <Route exact path='/students/:studentId' component={StudentSingle} />
             <Route exact path='/' component={Home} />
             <Route path="*" component={NotFound} />
-            
           </Switch>
         </div>
       </div>

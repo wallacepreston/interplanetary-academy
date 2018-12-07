@@ -58,7 +58,7 @@ class StudentsUpdate extends React.Component {
     if (campusId !== ''){
       stateToPass.campusId = campusId
     }
-    
+
     await this.props.updateStudent(stateToPass)
     this.setState({
       firstName: '',
