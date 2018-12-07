@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import axios from 'axios'
-import {addCampus} from '../reducers/campuses-reducer'
+import {addCampus, postCampus} from '../reducers/campuses-reducer'
 import Loading from './Loading'
 
 
@@ -30,17 +30,16 @@ class CampusAdd extends React.Component {
   async handleSubmit (event) {
     event.preventDefault()
     try {
-      const {data} = await axios.post(`/api/campuses/`, this.state)
-      this.props.addCampus(data)
-      this.setState({
-        name: '',
-        imageURL: '',
-        address: '',
-        description: ''
-      })
+      this.props.postCampus(this.state)
     } catch (err){
       console.log(err)
     }
+    this.setState({
+      name: '',
+      imageURL: '',
+      address: '',
+      description: ''
+    })
   }
   render () {
     if (this.state.loading) {
@@ -110,7 +109,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  addCampus: (campus) => dispatch(addCampus(campus))
+  addCampus: (campus) => dispatch(addCampus(campus)),
+  postCampus: (campus) => dispatch(postCampus(campus))
 })
 
 const CampusAddContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(CampusAdd))

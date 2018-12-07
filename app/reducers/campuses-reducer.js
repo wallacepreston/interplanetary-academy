@@ -49,6 +49,13 @@ export const deleteCampus = (campusId) => {
     dispatch(getCampuses(data))
   }
 }
+
+export const postCampus = (campus) => {
+  return async (dispatch) => {
+    const {data} = await axios.post(`/api/campuses/`, campus)
+    dispatch(addCampus(data))
+  }
+}
 // INITIAL STATE
 
 const initialState = {

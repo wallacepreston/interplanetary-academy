@@ -49,6 +49,13 @@ export const deleteStudent = (studentId) => {
   }
 }
 
+export const postStudent = (student) => {
+  return async (dispatch) => {
+    const {data} = await axios.post(`/api/students/`, student)
+    dispatch(addStudent(data))
+  }
+}
+
 // INITIAL STATE
 
 const initialState = {

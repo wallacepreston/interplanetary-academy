@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import axios from 'axios'
-import {addStudent} from '../reducers/students-reducer'
+import {addStudent, postStudent} from '../reducers/students-reducer'
 import Loading from './Loading'
 
 class StudentAdd extends React.Component {
@@ -33,8 +33,7 @@ class StudentAdd extends React.Component {
   async handleSubmit (event) {
     event.preventDefault()
     try {
-      const {data} = await axios.post(`/api/students/`, this.state)
-      this.props.addStudent(data)
+      this.props.postStudent(this.state)
     }
     catch (error) {
       console.error(error)
@@ -147,7 +146,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  addStudent: (student) => dispatch(addStudent(student))
+  addStudent: (student) => dispatch(addStudent(student)),
+  postStudent: (student) => dispatch(postStudent(student))
 })
 
 const StudentAddContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(StudentAdd))
