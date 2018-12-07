@@ -12,6 +12,7 @@ import NotFound from './NotFound'
 import {fetchCampuses} from '../reducers/campuses-reducer'
 import {fetchStudents} from '../reducers/students-reducer'
 import Loading from './Loading';
+import Home from './Home'
 
 class Root extends React.Component {
   constructor () {
@@ -35,12 +36,10 @@ class Root extends React.Component {
     <div>
       <nav>
         <div className="container">
-          Welcome! What would you like to view? <Link to="/students">Students</Link> | <Link to="/campuses">Campuses</Link>
+        Wallace Academy of JavaScript | Welcome! What would you like to view? <Link to="/students">Students</Link> | <Link to="/campuses">Campuses</Link>
         </div>
       </nav>
-      <main className="container-fluid">
-        <h1>Wallace Academy of JavaScript</h1>
-      </main>
+      
       <div className="justify-content-center">
         <div className="col text-center"> 
           <Switch>
@@ -50,6 +49,7 @@ class Root extends React.Component {
             <Route path='/students/add' component={StudentAdd} />
             <Route exact path='/campuses/:campusId' component={CampusSingle} />
             <Route exact path='/students/:studentId' component={StudentSingle} />
+            <Route exact path='/' component={Home} />
             <Route path="*" component={NotFound} />
             
           </Switch>

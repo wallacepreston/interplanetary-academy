@@ -7,6 +7,7 @@ const Loading = () => {
       <h1>
         Loading. Standby...
       </h1>
+      <img src="/images/loading-bar.gif" />
     </div>
   )
 }
