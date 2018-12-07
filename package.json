@@ -6,6 +6,7 @@
   "scripts": {
     "start:dev": "npm run build-watch & npm run start-server",
     "start-server": "nodemon main.js -e html,js,css --ignore public",
+    "start-server-deploy": "nodemon main.js",
     "build-watch": "webpack -w",
     "start": "npm run build-watch & npm run start-server",
     "seed": "node seed.js"
