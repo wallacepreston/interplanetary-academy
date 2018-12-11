@@ -4,6 +4,7 @@
   "description": "A review time project",
   "main": "index.js",
   "scripts": {
+    "prestart": "next build",
     "start:dev": "npm run build-watch & npm run start-server",
     "start-server": "nodemon main.js -e html,js,css --ignore public",
     "start-server-deploy": "node main.js",
@@ -46,7 +47,7 @@
     "eslint-config-fullstack": "^5.0.0",
     "eslint-plugin-react": "^7.8.2",
     "style-loader": "^0.21.0",
-    
+    "volleyball": "^1.5.1",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.3"
   }
