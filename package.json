@@ -4,7 +4,6 @@
   "description": "A review time project",
   "main": "index.js",
   "scripts": {
-    "prestart": "next build",
     "start:dev": "npm run build-watch & npm run start-server",
     "start-server": "nodemon main.js -e html,js,css --ignore public",
     "start-server-deploy": "node main.js",
