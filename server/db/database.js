@@ -10,9 +10,12 @@ const pkg = require('../../package.json')
 console.log(chalk.yellow('Opening database connection'))
 
 // const db = new Sequelize(`postgres://localhost:5432/${pkg.name}`, {
-const db = new Sequelize(`postgres://tftdtwrndheqqu:b44bcc8d6f18a44c6f33a547949ac174d8ece96797576d59d682c9e3979e9282@ec2-54-163-245-64.compute-1.amazonaws.com:5432/d6bk1bgmp7tac0
-`, { // MY EDIT! This is for deployed app. Use the commented-out version above for development
-  logging: false // so we don't see all the SQL queries getting made
-})
+const db = new Sequelize(
+  // `postgres://tftdtwrndheqqu:b44bcc8d6f18a44c6f33a547949ac174d8ece96797576d59d682c9e3979e9282@ec2-54-163-245-64.compute-1.amazonaws.com:5432/d6bk1bgmp7tac0`  // FOR DEPLOYED APP
+  `postgres://localhost:5432/${pkg.name}` // FOR DEVELOPMENT
+  , {
+    logging: false // so we don't see all the SQL queries getting made
+  }
+)
 
 module.exports = db

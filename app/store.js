@@ -1,4 +1,4 @@
-import {createStore, applyMiddleware} from 'redux'
+import {createStore, applyMiddleware, compose} from 'redux'
 import axios from 'axios'
 import rootReducer from './reducers'
 import loggingMiddleware from 'redux-logger' // https://github.com/evgenyrodionov/redux-logger
