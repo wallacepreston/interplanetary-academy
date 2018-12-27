@@ -9,7 +9,7 @@ module.exports = {
   },
   output: {
     path: __dirname,
-    filename: './public/[name].js'
+    filename: './public/bundle.js'
   },
   mode: 'development',
   context: __dirname,
