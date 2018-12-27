@@ -3,7 +3,10 @@
 const { resolve } = require('path')
 
 module.exports = {
-  entry: ['babel-polyfill', './app/main'],
+  entry: {
+    js: ['babel-polyfill', './app/main'],
+    vendor: ['react']
+  },
   output: {
     path: __dirname,
     filename: './public/bundle.js'
