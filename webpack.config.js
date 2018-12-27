@@ -8,8 +8,8 @@ module.exports = {
     vendor: ['react']
   },
   output: {
-    path: resolve(__dirname, '/public'),
-    filename: 'bundle.js'
+    path: __dirname,
+    filename: './public/[name].js'
   },
   mode: 'development',
   context: __dirname,
