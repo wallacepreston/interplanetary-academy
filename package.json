@@ -1,7 +1,10 @@
 {
-  "name": "senior-enrichment",
+  "name": "interplanetary-academy",
   "version": "0.0.1",
-  "description": "A review time project",
+  "description": "A Single Page full-stack CRUD app",
+  "engines": {
+    "node": "10.10.0"
+  },
   "main": "index.js",
   "scripts": {
     "prestart": "npm run build",
