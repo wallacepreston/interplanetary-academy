@@ -1,5 +1,7 @@
 # Interplanetary Academy
 
+This app is deployed here: [https://interplanetary-academy.herokuapp.com/](https://interplanetary-academy.herokuapp.com/)
+
 ## Getting started
 
 1. Fork and clone this repo
